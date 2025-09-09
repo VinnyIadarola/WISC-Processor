@@ -1,0 +1,176 @@
+/*
+   CS/ECE 552 Spring '22
+  
+   Filename        : execute.v
+   Description     : This is the overall module for the execute stage of the processor.
+*/
+`default_nettype none
+module execute (
+   input wire [15:0] inc_PC,
+   input wire imm_src,
+   input wire ALU_jmp,
+   input wire [2:0] branch,
+   input wire [15:0] A,
+   input wire [15:0] B,
+   input wire [1:0] B_src,
+   input wire [15:0] SExt_Disp,
+   input wire [3:0] ALU_control,
+   input wire [15:0] imm_1,
+   input wire [15:0] imm_2,
+
+   input wire inv_A,
+   input wire inv_B,
+   input wire B_to_zero,
+   input wire shift_A,
+   input wire Cin,
+   input wire sign,
+
+   output wire [15:0] tru_PC,
+   output wire [15:0] ALU_result
+);
+
+   // ALU Flags
+   wire         SF, 
+                ZF,
+                OF,
+                CF;
+
+   // B into the ALU
+   reg [15:0]   to_tru_B;
+   wire [15:0]  tru_B;
+
+   // From Shift to add MUX
+   wire [15:0]  shift_left_to_mux_zero;
+   wire [15:0]  shift_left_to_mux_one;
+
+   // Add Mux to adder
+   wire [15:0]  add_2_PC;
+
+   // Out of PC adder
+   wire [15:0]  disp_PC;
+
+   // To Jump mux
+   wire [15:0]  select_PC1;
+
+   // branch Control Output
+   wire [15:0]  pc_src;
+
+
+   /*********************************************************
+   **                     ALU SRC MUX                      **
+   *********************************************************/  
+
+   always @ (*) begin
+
+      to_tru_B = B;
+
+      case(B_src)
+
+         2'b00 : begin
+         to_tru_B = B;
+         end
+
+         2'b01 : begin
+         to_tru_B = imm_1;
+         end
+
+         2'b10 : begin
+         to_tru_B = imm_2;
+         end
+
+         2'b11 : begin
+         to_tru_B = SExt_Disp;
+         end
+      endcase
+   end
+
+   assign tru_B = to_tru_B;
+
+
+   /*********************************************************
+   **                  Thee   A   L   U                    **
+   *********************************************************/
+       ALU #(
+         .OPERAND_WIDTH(16),
+         .NUM_OPERATIONS(3)
+      ) alu_instance (
+         // Inputs
+         .InA(A),
+         .InB(tru_B),
+         .Oper(ALU_control),
+
+         //Control Inputs 
+         .inv_A(inv_A), // Wire for inv_A
+         .inv_B(inv_B), // Wire for inv_B
+         .Cin(Cin), //For subtraction
+         .B_to_zero(B_to_zero), // Wire for B_to_zero
+         .shift_A(shift_A), // Wire for shift_A
+         .sign(sign),
+
+         //Outputs
+         .Out(ALU_result),
+         .ZF(ZF),
+         .CF(CF),
+         .SF(SF),
+         .OF(OF)
+      );
+
+   /*********************************************************
+   **                     branch Control                   **
+   *********************************************************/
+   branch_control branch_ctrl (
+      //Inputs
+      .branch(branch),
+      .ZF(ZF),
+      .SF(SF),
+      .OF(OF),
+      .CF(CF),
+
+      //Outputs
+      .pc_src(pc_src)
+   );
+
+   /*********************************************************
+   **                    Address Aligner                   **
+   *********************************************************/
+
+   assign shift_left_to_mux_zero = SExt_Disp << 1;
+   assign shift_left_to_mux_one = imm_2 << 1;
+
+
+   /*********************************************************
+   **                     Add Mux                          **
+   *********************************************************/
+
+   assign add_2_PC = imm_src ? shift_left_to_mux_one : shift_left_to_mux_zero;
+
+
+   /*********************************************************
+   **                     Add PC and IMM                   **
+   *********************************************************/
+   
+   fulladder16 addImmToPC(
+      .A(inc_PC), 
+      .B(add_2_PC), 
+
+      .S(disp_PC), 
+      .Cout()
+   );
+
+
+   /*********************************************************
+   **                     PC SRC MUX                       **
+   *********************************************************/
+
+   assign select_PC1 = pc_src ? disp_PC : inc_PC;
+
+
+   /*********************************************************
+   **                     ALU_jmp MUX                       **
+   *********************************************************/
+
+   assign tru_PC = ALU_jmp ? ALU_result : select_PC1;
+
+   
+endmodule
+`default_nettype wire

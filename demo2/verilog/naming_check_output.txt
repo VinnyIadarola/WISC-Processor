@@ -1,0 +1,62 @@
+Checking file execute.v: OK: Found module execute (expected execute) in execute.v, at line 8:module execute (
+
+Checking file fetch.v: OK: Found module fetch (expected fetch) in fetch.v, at line 8:module fetch (
+
+Checking file hazard_unit.v: OK: Found module hazard_unit (expected hazard_unit) in hazard_unit.v, at line 8:module hazard_unit (
+
+Checking file proc_hier_pbench.v: OK: Found module proc_hier_pbench (expected proc_hier_pbench) in proc_hier_pbench.v, at line 5:module proc_hier_pbench();
+
+Checking file proc.v: OK: Found module proc (expected proc) in proc.v, at line 8:module proc (/*AUTOARG*/
+
+Checking file Decode_Execute_FF.v: OK: Found module Decode_Execute_FF (expected Decode_Execute_FF) in Decode_Execute_FF.v, at line 1:module Decode_Execute_FF (
+
+Checking file ADD_unit.v: ERROR: (no modules found in file)
+Checking file ALU_op_control_config.v: ERROR: (no modules found in file)
+Checking file ALU_op_control.v: OK: Found module ALU_op_control (expected ALU_op_control) in ALU_op_control.v, at line 10:module ALU_op_control (
+
+Checking file ALU.v: ERROR: (no modules found in file)
+Checking file branch_control.v: OK: Found module branch_control (expected branch_control) in branch_control.v, at line 2:module branch_control (
+
+Checking file cla_16b.v: ERROR: (no modules found in file)
+Checking file clkrst.v: OK: Found module clkrst (expected clkrst) in clkrst.v, at line 13:module clkrst (clk, rst, err);
+
+Checking file decode.v: OK: Found module decode (expected decode) in decode.v, at line 8:module decode (
+
+Checking file dff.v: OK: Found module dff (expected dff) in dff.v, at line 6:module dff (q, d, clk, rst);
+
+Checking file execute_Memory_FF.v: OK: Found module execute_Memory_FF (expected execute_Memory_FF) in execute_Memory_FF.v, at line 1:module execute_Memory_FF (
+
+Checking file extender.v: OK: Found module extender (expected extender) in extender.v, at line 9:module extender (
+
+Checking file fetch_Decode_FF.v: OK: Found module fetch_Decode_FF (expected fetch_Decode_FF) in fetch_Decode_FF.v, at line 1:module fetch_Decode_FF (
+
+Checking file hazard_unit_config.v: ERROR: (no modules found in file)
+Checking file instruction_decoder_config.v: ERROR: (no modules found in file)
+Checking file instruction_decoder.v: OK: Found module instruction_decoder (expected instruction_decoder) in instruction_decoder.v, at line 8:module instruction_decoder (
+
+Checking file logical_unit_config.v: ERROR: (no modules found in file)
+Checking file logical_unit.v: ERROR: (no modules found in file)
+Checking file memory2c.syn.v: ERROR: (name mismatch) Found module memory2c (expected memory2c.syn) in memory2c.syn.v, at line 37:module memory2c (data_out, data_in, addr, enable, wr, createdump, clk, rst);
+
+Checking file memory2c.v: OK: Found module memory2c (expected memory2c) in memory2c.v, at line 35:module memory2c (data_out, data_in, addr, enable, wr, createdump, clk, rst);
+
+Checking file memory.v: OK: Found module memory (expected memory) in memory.v, at line 9:module memory (
+
+Checking file memory_WriteBack_FF.v: OK: Found module memory_WriteBack_FF (expected memory_WriteBack_FF) in memory_WriteBack_FF.v, at line 1:module memory_WriteBack_FF (
+
+Checking file proc_hier.v: OK: Found module proc_hier (expected proc_hier) in proc_hier.v, at line 6:module proc_hier();
+
+Checking file reg1.v: ERROR: (no modules found in file)
+Checking file regDataMux_config.v: ERROR: (no modules found in file)
+Checking file regDataMux.v: ERROR: (no modules found in file)
+Checking file regFile_bypass.v: ERROR: (no modules found in file)
+Checking file regFile.v: ERROR: (no modules found in file)
+Checking file rot_left.v: ERROR: (no modules found in file)
+Checking file rot_right.v: ERROR: (no modules found in file)
+Checking file shifter_config.v: ERROR: (no modules found in file)
+Checking file shifter.v: ERROR: (no modules found in file)
+Checking file shift_left.v: ERROR: (no modules found in file)
+Checking file shift_right_logic.v: ERROR: (no modules found in file)
+Checking file wb.v: OK: Found module wb (expected wb) in wb.v, at line 8:module wb (
+
+Examined 39 files, Found 20 errors

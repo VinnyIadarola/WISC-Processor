@@ -1,0 +1,10 @@
+Line 21: Bad keyword integer
+Line 23: Bad keyword initial
+Line 24: begin without always/case
+Line 33: Expected '@' after 'always'
+Line 35: Bad keyword if
+Line 33: Always without case(x)
+Line 40: Bad keyword posedge
+Line 48: Bad keyword if
+Line 40: Always without case(x)
+End of file /home/msong/Downloads/phase2flat/project/project/demo2/verilog/clkrst.v. Hash = 1766918249

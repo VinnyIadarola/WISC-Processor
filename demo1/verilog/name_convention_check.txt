@@ -1,0 +1,85 @@
+Checking file ADD_unit.v: OK: Found module ADD_unit (expected ADD_unit) in ADD_unit.v, at line 2:module ADD_unit 
+
+Checking file ALU_config.v: ERROR: (no modules found in file)
+Checking file ALU_op_control.v: OK: Found module ALU_op_control (expected ALU_op_control) in ALU_op_control.v, at line 8:module ALU_op_control (
+
+Checking file ALU.v: OK: Found module ALU (expected ALU) in ALU.v, at line 14:module ALU 
+
+Checking file branch_control.v: OK: Found module branch_control (expected branch_control) in branch_control.v, at line 2:module branch_control (
+
+Checking file cla_16b.v: OK: Found module cla_16b (expected cla_16b) in cla_16b.v, at line 9:module cla_16b
+
+Checking file cla_4b.v: OK: Found module cla_4b (expected cla_4b) in cla_4b.v, at line 9:module cla_4b 
+
+Checking file clkrst.v: OK: Found module clkrst (expected clkrst) in clkrst.v, at line 13:module clkrst (clk, rst, err);
+
+Checking file decode.v: OK: Found module decode (expected decode) in decode.v, at line 8:module decode (
+
+Checking file dff.v: OK: Found module dff (expected dff) in dff.v, at line 6:module dff (q, d, clk, rst);
+
+Checking file errDetect.v: OK: Found module errDetect (expected errDetect) in errDetect.v, at line 2:module errDetect #(
+
+Checking file execute.v: OK: Found module execute (expected execute) in execute.v, at line 8:module execute (
+
+Checking file extender.v: OK: Found module extender (expected extender) in extender.v, at line 9:module extender (
+
+Checking file fetch.v: OK: Found module fetch (expected fetch) in fetch.v, at line 8:module fetch (
+
+Checking file fulladder16.v: OK: Found module fulladder16 (expected fulladder16) in fulladder16.v, at line 2:module fulladder16 (
+
+Checking file fulladder_1b.v: OK: Found module fulladder_1b (expected fulladder_1b) in fulladder_1b.v, at line 8:module fulladder_1b(
+
+Checking file fulladder1.v: OK: Found module fulladder1 (expected fulladder1) in fulladder1.v, at line 2:module fulladder1 (
+
+Checking file fulladder4.v: OK: Found module fulladder4 (expected fulladder4) in fulladder4.v, at line 1:module fulladder4 (
+
+Checking file instruction_decoder.v: OK: Found module instruction_decoder (expected instruction_decoder) in instruction_decoder.v, at line 7:module instruction_decoder (
+
+Checking file logical_unit_config.v: ERROR: (no modules found in file)
+Checking file logical_unit.v: OK: Found module logical_unit (expected logical_unit) in logical_unit.v, at line 3:module logical_unit 
+
+Checking file memory2c.syn.v: ERROR: (name mismatch) Found module memory2c (expected memory2c.syn) in memory2c.syn.v, at line 37:module memory2c (data_out, data_in, addr, enable, wr, createdump, clk, rst);
+
+Checking file memory2c.v: OK: Found module memory2c (expected memory2c) in memory2c.v, at line 35:module memory2c (data_out, data_in, addr, enable, wr, createdump, clk, rst);
+
+Checking file memory.v: OK: Found module memory (expected memory) in memory.v, at line 9:module memory (
+
+Checking file nand2.v: OK: Found module nand2 (expected nand2) in nand2.v, at line 1:module nand2 (in1,in2,out);
+
+Checking file nor2.v: OK: Found module nor2 (expected nor2) in nor2.v, at line 1:module nor2 (in1,in2,out);
+
+Checking file not1.v: OK: Found module not1 (expected not1) in not1.v, at line 1:module not1 (in1,out);
+
+Checking file proc_hier_bench.v: OK: Found module proc_hier_bench (expected proc_hier_bench) in proc_hier_bench.v, at line 5:module proc_hier_bench();
+
+Checking file proc_hier.v: OK: Found module proc_hier (expected proc_hier) in proc_hier.v, at line 6:module proc_hier();
+
+Checking file proc.v: OK: Found module proc (expected proc) in proc.v, at line 5:module proc (/*AUTOARG*/
+
+Checking file reg1.v: OK: Found module reg1 (expected reg1) in reg1.v, at line 2:module reg1 #(
+
+Checking file regDataMux_config.v: ERROR: (no modules found in file)
+Checking file regDataMux.v: OK: Found module regDataMux (expected regDataMux) in regDataMux.v, at line 3:module regDataMux #(
+
+Checking file regFile_bypass.v: OK: Found module regFile_bypass (expected regFile_bypass) in regFile_bypass.v, at line 9:module regFile_bypass # (
+
+Checking file regFile.v: OK: Found module regFile (expected regFile) in regFile.v, at line 11:module regFile #(
+
+Checking file rot_left.v: OK: Found module rot_left (expected rot_left) in rot_left.v, at line 3:module rot_left
+
+Checking file rot_right.v: OK: Found module rot_right (expected rot_right) in rot_right.v, at line 3:module rot_right
+
+Checking file shifter_config.v: ERROR: (no modules found in file)
+Checking file shifter.v: OK: Found module shifter (expected shifter) in shifter.v, at line 8:module shifter 
+
+Checking file shift_left.v: OK: Found module shift_left (expected shift_left) in shift_left.v, at line 3:module shift_left
+
+Checking file shift_right_arith.v: OK: Found module shift_right_arith (expected shift_right_arith) in shift_right_arith.v, at line 3:module shift_right_arith
+
+Checking file shift_right_logic.v: OK: Found module shift_right_logic (expected shift_right_logic) in shift_right_logic.v, at line 3:module shift_right_logic
+
+Checking file wb.v: OK: Found module wb (expected wb) in wb.v, at line 8:module wb (
+
+Checking file xor2.v: OK: Found module xor2 (expected xor2) in xor2.v, at line 1:module xor2 (in1,in2,out);
+
+Examined 43 files, Found 5 errors

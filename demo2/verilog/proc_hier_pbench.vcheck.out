@@ -1,0 +1,24 @@
+Line 34: Bad keyword integer
+Line 35: Bad keyword integer
+Line 36: Bad keyword integer
+Line 38: Bad keyword integer
+Line 39: Bad keyword integer
+Line 40: Bad keyword integer
+Line 41: Bad keyword integer
+Line 46: Bad keyword initial
+Line 47: begin without always/case
+Line 62: Bad keyword posedge
+Line 63: Bad keyword if
+Line 64: Bad keyword if
+Line 64: Bad keyword ||
+Line 64: Bad keyword ||
+Line 67: Bad keyword if
+Line 70: Bad keyword if
+Line 73: Bad keyword if
+Line 76: Bad keyword if
+Line 91: Bad keyword if
+Line 96: Bad keyword if
+Line 101: Bad keyword if
+Line 105: Bad keyword if
+Line 62: Always without case(x)
+End of file /home/msong/Downloads/phase2flat/project/project/demo2/verilog/proc_hier_pbench.v. Hash = -614296455

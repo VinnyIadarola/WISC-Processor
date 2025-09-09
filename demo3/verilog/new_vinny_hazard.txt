@@ -1,0 +1,121 @@
+m//odule hazard_unit (
+//	// Decode INputs 
+//	input [2:0]		source_reg_DI, 
+//	input [2:0]		target_reg_DI, 
+//	input			source_reg_hazard_DI, 
+//	input			target_reg_hazard_DI,
+//	input			dump_DI, 
+//	input			ALU_jmp_src,
+//	input [2:0]		branch,
+//	input			PC_src,
+//
+//	// Execute Inputs
+//	input			reg_write_en_EX, 
+//	input [2:0]		source_reg_EX, 
+//	input [2:0]		target_reg_EX,
+//	input			mem_enable_EX,
+//	input			dump_EX, 
+//	input			source_reg_hazard_EX, 
+//	input			target_reg_hazard_EX,
+//	input [2:0]		write_reg_sel_EX, 
+//
+//	// Memory Inputs
+//	input			reg_write_en_MEM, 
+//	input [2:0]		write_reg_sel_MEM, 
+//	input [15:0]	ALU_result_MEM, 
+//	input			dump_MEM,
+//
+//	// Writeback Inputs
+//	input			reg_write_en_WB,
+//	input [2:0]		write_reg_sel_WB,
+//	input [15:0]	data_WB,
+//
+//
+//
+//
+//	// Data Outputs
+//	output			foward_A, 
+//	output [15:0]	foward_A_data,
+//	output			foward_B, 
+//	output [15:0]	foward_B_data,
+//	output			PC_det_forward, 
+//	output [15:0]	PC_det_forward_data,
+//
+//	// Pipeline Control Outputs
+//	output [3:0]	stall_pipeline, 
+//	output [3:0]	clear_pipeline,
+//	output			freeze_PC
+//);
+//
+//	
+//	
+//	wire			A_hazard_DEEX;
+//	wire			foward_A_MEMEX;
+//	wire			foward_A_WBEX;
+//	
+//	wire			B_hazard_DEEX;
+//	wire			B_forward_MEMEX;
+//	wire			B_forward_WBEX;
+//	
+//	wire 			load_stall;
+//	wire			stall_DI;
+//	
+//	wire 			No_Write_PC;
+//	
+//
+//
+//	/******************************************************
+//	**                   Fowarding Checks                **
+//	******************************************************/
+//	//CASE 1 EX -> EX
+//	assign foward_A_MEMEX = (source_reg_EX == write_reg_sel_MEM) & reg_write_en_MEM & source_reg_hazard_EX; 
+//	assign foward_B_MEMEX = (target_reg_EX == write_reg_sel_MEM) & reg_write_en_MEM & target_reg_hazard_EX; 
+//
+//
+//	//CASE 2 MEM -> EX 
+//	// you can simply these 4
+//	assign foward_A_WBEX = (source_reg_EX == write_reg_sel_WB) & reg_write_en_WB & source_reg_hazard_EX;
+//	assign foward_B_WBEX = (target_reg_EX == write_reg_sel_WB) & reg_write_en_WB & target_reg_hazard_EX;
+//
+//	//Something can be fowarded
+//	assign foward_A = foward_A_MEMEX | foward_A_WBEX;
+//	assign foward_B = foward_B_MEMEX | foward_B_WBEX;
+//
+//	// writeback gets rewritten by memory take memory
+//	assign foward_A_data = foward_A_MEMEX ? ALU_result_MEM : data_WB; 
+//	assign foward_B_data = foward_B_MEMEX ? ALU_result_MEM : data_WB; 
+//
+//	//PC forwarding but again what are we actuaally doing with branch prediction
+//	assign PC_det_forward = (source_reg_DI == write_reg_sel_MEM) & (ALU_jmp_src | ((branch != 3'b111) & (branch != 3'b000))); //branch or JR/JALR
+//	assign PC_det_forward_data = ALU_result_MEM; //keep for clarity? bAD CODING
+//
+//	
+//	//redudant
+//
+//	/******************************************************
+//	**                pure RAW and PC Stalling                 **
+//	******************************************************/
+//	//Purely for stalling
+//	assign A_hazard_DEEX = (source_reg_DI == write_reg_sel_EX) & reg_write_en_EX & source_reg_hazard_DI; 
+//	assign B_hazard_DEEX = (target_reg_DI == write_reg_sel_EX) & reg_write_en_EX & target_reg_hazard_DI; 
+//
+//
+//	assign stall_DI = ((source_reg_DI == write_reg_sel_sel_EX) & (branch != 3'b000) & (~ALU_jmp_src) & reg_write_en_EX);
+//	assign load_stall =  mem_enable_EX & ((A_hazard_DEEX & source_reg_hazard_DI) | (B_hazard_DEEX & target_reg_hazard_DI));
+//	assign No_Write_PC = dump_DI | dump_EX | dump_MEM;
+//
+//	/******************************************************
+//	**                Stalls and clear                 **
+//	******************************************************/
+//	assign stall_pipeline = {(load_stall | stall_DI), 1'b0, 1'b0, 1'b0};
+//	assign clear_pipeline = {((PC_src | No_Write_PC) & ~(stall_DI | load_stall)), (load_stall | stall_DI), 1'b0, 1'b0};
+//
+//	//Shouldnt need to wrap PC around a bunch we should be able to freeze until the instr clears or we jump
+//	assign freeze_PC = load_stall | No_Write_PC | stall_DI;
+//
+//
+//
+//	
+//endmodule
+//
+//

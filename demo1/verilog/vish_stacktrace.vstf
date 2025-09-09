@@ -1,0 +1,58 @@
+# Current time Thu Oct 24 13:33:54 2024
+# ModelSim DE Stack Trace
+# Current time # Current time # Program = Thu Oct 24 13:33:54 2024
+Thu Oct 24 13:33:54 2024
+vish# 
+ModelSim# Id = " DE10.7c Stack Trace
+# Current time # Program = "
+Thu Oct 24 13:33:54 2024
+# vish# Current time # Version = "# 2018.08Thu Oct 24 13:33:54 2024
+
+ModelSim#  DEModelSimModelSim"
+# Id = " Stack Trace
+ DE# Date = "# Program =  Stack Trace
+Aug 17 201810.7c# Program = vish DE"
+ Stack Trace
+vish# Platform = ""
+
+
+# Version = "# Program = linuxpe# Id = "vish"
+# Id = "2018.08
+10.7c"
+10.7c# Id = ""
+# Date = "10.7c"
+"
+Aug 17 2018# Version = "# Version = "# Version = "2018.082018.08"
+"
+"
+# Date = "2018.08# Date = "# Platform = ""
+Aug 17 2018# Date = ""
+Aug 17 2018linuxpeAug 17 2018"
+"
+# Platform = ""
+# Platform = "linuxpelinuxpe# Platform = ""
+"
+linuxpe"
+# 0    0xf7fc4549: '<unknown (@0xf7fc4549)>'
+# 0    0xf7fc4549: '<unknown (@0xf7fc4549)>'
+# 0    0xf7fc4549: '<unknown (@0xf7fc4549)>'
+# 1    0xf7fc456b: '<unknown (@0xf7fc456b)>'
+# 1    0xf7fc456b: '<unknown (@0xf7fc456b)>'
+# 1    0xf7fc456b: '<unknown (@0xf7fc456b)>'
+# End of Stack Trace
+
+# End of Stack Trace
+
+# End of Stack Trace
+
+# 0    0xf7fc4549: '<unknown (@0xf7fc4549)>'
+# 0    0xf7fc4549: '<unknown (@0xf7fc4549)>'
+# 1    0xf7fc456b: '<unknown (@0xf7fc456b)>'
+# End of Stack Trace
+
+# 1    0xf7fc456b: '<unknown (@0xf7fc456b)>'
+# End of Stack Trace
+
+# transcript error: error writing "stdout": I/O error
+    while executing
+"puts -nonewline stdout $s"
